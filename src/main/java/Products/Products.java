@@ -1,0 +1,5 @@
+package Products;
+
+public enum Products {
+    APPLE, BANANA, OAT, MILK, SOAP, SHAMPOO, BROOM, HAMMER, SMARTPHONE, EBOOK, SMARTWATCH, LAPTOP
+}
