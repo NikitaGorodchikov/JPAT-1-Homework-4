@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    static List<Item> basket = new ArrayList<>();
-    static List<Item> catalogue = new ArrayList<>();
+    static List<Item> basket = new ArrayList<>(); //Dependency Inversion Principle
+    static List<Item> catalogue = new ArrayList<>(); //Dependency Inversion Principle
     static Scanner scanner = new Scanner(System.in);
     static Recommendations rec = new Recommendations();
     static int wallet;
@@ -67,10 +67,10 @@ public class Main {
         }
     }
 
-    public static void addItem() throws Exception {
+    public static void addItem() throws Exception { //Interface Segregation Principle
         System.out.println("Выберете категорию:");
         Categories[] categoriesList = Categories.values();
-        for (int i = 0; i < categoriesList.length; i++) {
+        for (int i = 0; i < categoriesList.length; i++) { //Пример маг. чисел -> в форе не цифра а длина коллекции
             System.out.println(i + 1 + ") " + categoriesList[i]);
         }
         int input = scanner.nextInt();
@@ -103,14 +103,14 @@ public class Main {
         }
     }
 
-    public static void deleteItem() {
+    public static void deleteItem() { //Interface Segregation Principle
         soutBasket();
         System.out.print("Выберете товар для удаления ->");
         int num = scanner.nextInt() - 1;
         basket.remove(num);
     }
 
-    public static int basketPrice() {
+    public static int basketPrice() { // Interface Segregation Principle
         int sum = 0;
         for (Item item : basket) {
             sum = sum + item.getNumber()*item.getPrice();
@@ -118,7 +118,7 @@ public class Main {
         return sum;
     }
 
-    public static void buy() throws Exception {
+    public static void buy() throws Exception { // Interface Segregation Principle
         if (basket.size() == 0) {
             System.out.println("Нечего покупать!");
         } else {
@@ -143,7 +143,7 @@ public class Main {
         }
     }
 
-    public static void recommend() {
+    public static void recommend() { //Interface Segregation Principle
         System.out.println("У нас для вас новая рекомендация!");
         Item item = rec.recommendation(basket);
         System.out.println(item.toStringInBasket());
@@ -161,7 +161,7 @@ public class Main {
         }
     }
 
-    public static void soutBasket() {
+    public static void soutBasket() { //DRY вывод вынесен в отдельный метод, Interface Segregation Principle
         if (basket.size() == 0) {
             System.out.println("Ваша корзина пуста!");
         } else {

@@ -1,6 +1,6 @@
 package Products;
 
-public class Item {
+public class Item { //Single Responsibility Principle, Interface Segregation Principle
     Products name;
     Categories category;
     int number;

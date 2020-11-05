@@ -1,7 +1,7 @@
 import Products.Item;
 import java.util.List;
 
-public class Recommendations {
+public class Recommendations { //Single Responsibility Principle, Interface Segregation Principle
     public Item recommendation(List<Item> basket) {
         Item itemForRec = null;
         int num = 0;
